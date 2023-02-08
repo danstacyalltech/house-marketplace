@@ -71,6 +71,7 @@ function Profile() {
 		auth.signOut()
 		navigate("/")
 	}
+  console.log("here is the user in auth", auth)
 
 	const onSubmit = async () => {
     try {

@@ -8,14 +8,18 @@ import googleIcon from "../assets/svg/googleIcon.svg"
 function OAuth() {
 	const navigate = useNavigate()
 	const location = useLocation()
+	const auth = getAuth()
 
 	// This is the login with Google function
 	const onGoogleClick = async () => {
 		try {
-			const auth = getAuth()
 			const provider = new GoogleAuthProvider()
 			const result = await signInWithPopup(auth, provider)
 			const user = result.user
+			// This gives you a Google Access Token.
+			const credential = GoogleAuthProvider.credentialFromResult(result);
+			const token = credential.accessToken;
+			console.log("this is the Google Token", token)
 
 			// Check for user in database
 			const docRef = doc(db, "users", user.uid)
@@ -38,10 +42,14 @@ function OAuth() {
 	// This is the same as the Google function, but with Microsoft
 	const onMSClick = async () => {
 		try {
-			const auth = getAuth()
 			const provider = new OAuthProvider('microsoft.com');
 			const result = await signInWithPopup(auth, provider)
 			const user = result.user
+			// This gives you a Google Access Token.
+			const credential = OAuthProvider.credentialFromResult(result);
+			const token = credential.accessToken;
+			console.log("this is the Microsoft Token", token)
+			console.log("here is the user in auth", auth.currentUser)
 
 			// Check for user in database
 			const docRef = doc(db, "users", user.uid)
