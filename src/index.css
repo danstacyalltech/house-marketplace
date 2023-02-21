@@ -120,6 +120,50 @@ button {
 
 .pageContainer{
   margin-bottom: 10rem;
+  background: url("https://d3cy9zhslanhfa.cloudfront.net/media/6B81083F-46B8-4043-8A0EB4A5ACCFFCB6/76050980-9336-4DF5-82365042FD8293A8/webimage-3052AE4D-19C8-416D-81CD93C5305F9007.png");
+  /* make image fit screen */
+  background-size: cover;
+  /* center image vertically */
+  background-position: center;
+  /* add some padding */
+  padding: 1rem;
+  max-width: 100%;
+  max-height: auto;
+  height: auto;
+  display: grid;
+}
+
+.formContainer {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  max-height: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.emailInputDiv {
+  position: relative;
+  margin-bottom: 1rem;
+  border: #000000;
+  margin-bottom: 2rem;
+  background: url('./assets/svg/personIcon.svg') #ffffff 2.5% center no-repeat;
+}
+
+.passwordInputDiv {
+  position: relative;
+  margin-bottom: 1rem;
+  border: #000000;
 }
 
 .loadingSpinner {
@@ -137,6 +181,13 @@ button {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.loginScreen__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid black;
 }
 
 .pageHeader {
@@ -195,12 +246,7 @@ button {
 }
 
 .emailInput {
-  margin-bottom: 2rem;
-  background: url('./assets/svg/personIcon.svg') #ffffff 2.5% center no-repeat;
-}
-
-.passwordInputDiv {
-  position: relative;
+  
 }
 
 .passwordInput {

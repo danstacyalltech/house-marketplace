@@ -44,56 +44,63 @@ function SignIn() {
 	return (
 		<>
 			<div className="pageContainer">
-				<header>
-					<p className="pageHeader">Welcome Back!</p>
-				</header>
+				<div className="formContainer">
+					<form onSubmit={onSubmit}>
+						{/* Alltech Logo */}
+						<img src="https://d3cy9zhslanhfa.cloudfront.net/media/6B81083F-46B8-4043-8A0EB4A5ACCFFCB6/9EBC465C-1BE4-4377-AB6A6615998B020F/webimage-61FA9291-D4BE-486D-B10BCAD9C5A5D5F5.png" alt="logo" className="logo" />
 
-				<form onSubmit={onSubmit}>
-					<input
-            type='email'
-            className='emailInput'
-            placeholder='Email'
-            id='email'
-            value={email}
-            onChange={onChange}
-          />
+						{/* Email Input */}
+						<div className="emailInputDiv">	
+							<input
+								type='email'
+								className='emailInput'
+								placeholder='Email'
+								id='email'
+								value={email}
+								onChange={onChange}
+							/>
+						</div>
 
-					<div className='passwordInputDiv'>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              className='passwordInput'
-              placeholder='Password'
-              id='password'
-              value={password}
-              onChange={onChange}
-            />
+						{/* Password Input */}
+						<div className='passwordInputDiv'>
+							<input
+								type={showPassword ? 'text' : 'password'}
+								className='passwordInput'
+								placeholder='Password'
+								id='password'
+								value={password}
+								onChange={onChange}
+							/>
+							{/* Password visability icon */}
+							<img
+								src={visibilityIcon}
+								alt='show password'
+								className='showPassword'
+								onClick={() => setShowPassword((prevState) => !prevState)}
+							/>
+						</div>
 
-						<img
-              src={visibilityIcon}
-              alt='show password'
-              className='showPassword'
-              onClick={() => setShowPassword((prevState) => !prevState)}
-            />
-					</div>
+						{/* Forgot Password Link */}
+						<Link to="/forgot-password" 
+						className="forgotPasswordLink">
+								Forgot Password?
+						</Link>
 
-					<Link to="/forgot-password" 
-					className="forgotPasswordLink">
-							Forgot Password?
+						{/* Sign in Button */}
+						<div className="signInBar">
+							<p className="signInText">Sign In</p>
+							<button className="signInButton">
+								<ArrowRightIcon fill='#ffffff' width='34px' />
+							</button>
+						</div>
+					</form>
+
+					<OAuth />
+
+					<Link to="/sign-up" className="registerLink">
+						Sign Up Instead
 					</Link>
-
-					<div className="signInBar">
-						<p className="signInText">Sign In</p>
-						<button className="signInButton">
-							<ArrowRightIcon fill='#ffffff' width='34px' />
-						</button>
-					</div>
-				</form>
-
-				<OAuth />
-
-				<Link to="/sign-up" className="registerLink">
-					Sign Up Instead
-				</Link>
+				</div>
 			</div>
 		</>
 	)
